@@ -14,6 +14,7 @@ rarity level, satin provides only one model per piece and rarity level. All
 variants for a piece and rarity level will look the same with this mod.
 
 ![All twenty satin armour models](satin-models.png)
+
 *Rows: chest, shoulders, gloves, boots. Columns by rarity: common, uncommon, rare, epic, legendary*
 
 This mod is for the **alpha** build of Cube World.
