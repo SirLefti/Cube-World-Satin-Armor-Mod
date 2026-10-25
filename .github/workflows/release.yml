@@ -24,8 +24,15 @@ jobs:
 
       - name: Verify the artifact is a 32-bit Windows DLL
         run: |
-          file SatinArmor.dll
-          file SatinArmor.dll | grep -q 'PE32 executable (DLL).*Intel 80386.*for MS Windows'
+          # older and newer versions of file word this differently, so check each part
+          for dll in SatinArmor.dll; do
+            info=$(file "$dll")
+            echo "$info"
+            grep -q 'PE32 executable' <<< "$info"
+            grep -q '(DLL)' <<< "$info"
+            grep -q 'MS Windows' <<< "$info"
+            grep -Eq 'Intel (80386|i386)' <<< "$info"
+          done
 
       - name: Publish release
         env:
